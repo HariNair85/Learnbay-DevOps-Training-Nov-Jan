@@ -1,0 +1,94 @@
+	1. FROM:- it is used to specify a base image or platform for the app
+
+FROM  python:3.2
+
+FROM node:latest
+
+FROM openjdk:1.8.0
+
+FROM ubunut:latest or amazon-linux:katest
+
+
+	2. WORKDIR:- it is used to specify a working directory inside the container
+
+WORKDIR  /app  or /web or /murali 
+
+	3. MAINTAINER:- it is used to specify a dockerfile author or maintainer 
+
+MAINTAINER  muraliclahan526@gmail.com 
+
+	4. RUN :- it will execute commands while building a docker image
+
+RUN apt update -y
+
+RUN yum update -y
+
+RUN npm install
+
+RUN pip install requirements.txt
+
+RUN  apt install apache2 -y
+
+RUN apt install nginx -y
+
+
+	5. COPY :- it is used to copy src, libraries, dependencies form host machine to container machine
+
+COPY  <src location>   <destination-location>
+
+COPY .  /app
+
+	6. EXPOSE :- it is used to specify app port number in a dockerfile 
+
+EXPOSE  8000
+
+EXPOSE 80
+
+EXPOSE 5000
+
+EXPOSE 9000
+
+	7. ENTRYPOINT :- it is used to specify to execute a fixed main command, container behave like an executable, command cannot be overridden 
+
+ENTRYPOINT  ["node", "start"]
+
+
+	8. CMD:- it is used to specify default commands for arguments, can easily overridden at runtime, if a user passes a command while running the container CMD is replaced 
+
+CMD ["python", "app.py"]
+
+CMD ["echo", "hello"]
+
+CMD ["java", "jar", "java:jar"]
+
+CMD ["node", "server.js"]
+
+
+	Ø We can define multiple cmd's in a dockerfile 
+	Ø I have defined 5 cmd's in a dockerfile
+
+
+docker run -d --name <c-name>  -p <h-port-no>:<app-port-no>  <i-name>
+
+docker run :- it will pull the image form registry, secondly it will create container and finally it will start container
+
+-d :- detached mode :- container is going to running in  a background server
+
+--name: -c-name but name  should be unique 
+
+-p:- port mapping
+
+Host port no:- it will be decided by devops teams and it should be unique 
+App port on:- it wil decide by dev team but u can use same port no for no.of containers 
+
+
+# docker commands
+
+    3  docker --version
+    4  ls
+    5  docker build -t login-1 .
+    6  docker images
+    7  ls
+    8  docker run -d --name login-app -p 80:80 login-1:latest
+    9  docker ps
+   10  history
