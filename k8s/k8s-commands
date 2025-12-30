@@ -31,3 +31,38 @@
    55  kubectl logs ipl-pod -n murali-ns
    56  ls
    57  history
+       8  kubectl get nodes
+    9  ls
+   10  mkdir murali-k8s
+   11  cd murali-k8s/
+   12  ls
+   13  kubectl create ns murali-ns
+   14  vi rs.yaml
+   15  ls
+   16  cat rs.yaml
+   17  kubectl apply -f rs.yaml
+   18  kubectl get rs -n murali-ns
+   19  kubectl get all -n murali-ns
+   20  kubectl delete pod ipl-replicaset-2lncd -n murali-ns
+   21  kubectl get all -n murali-ns
+   22  kubectl delete pods --all -n murali-ns
+   23  kubectl get all -n murali-ns
+   24  vi rs.yaml
+   25  ls
+   26  kubectl apply -f rs.yaml
+   27  kubectl get all -n murali-ns
+   28  kubectl describe rs ipl-replicaset -n murali-ns
+   29  ls
+   30  vi rs.yaml
+   31  kubectl apply -f rs.yaml
+   32  kubectl get all -n murali-ns
+   33  ls
+   34  kubectl delete rs ipl-replicaset -n murali-ns
+   35  vi deployment.yaml
+   36  ls
+   37  kubectl apply -f deployment.yaml
+   38  kubectl get deployment -n murali-ns
+   39  kubectl get all -n murali-ns
+   40  kubectl delete pods --all -n murali-ns
+   41  kubectl get all -n murali-ns
+
