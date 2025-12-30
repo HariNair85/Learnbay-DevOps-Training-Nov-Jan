@@ -1,0 +1,22 @@
+- hosts: webservers
+  user: ansible
+  become: yes # Become an ansible user - Yes
+  connection: ssh # Connection type - SSH
+  tasks:
+    - name: UnInstall httpd on my host servers
+      action: yum pkg=httpd state=absent # To install httpd package
+
+    - name: UnInstall docket on my host servers
+      action: yum pkg=docker state=absent # To install docket package
+
+    - name: UnInstall java on my host servers
+      action: yum pkg=java-1.8.0-openjdk state=absent # To install java package
+
+    - name: UnInstall python on my host machine
+      action: yum pkg=python3 state=absent # To install python package
+
+    - name: Start httpd service on my host servers
+      action: service name=httpd state=started # To start httpd service
+
+    - name: Start docker service on my host servers
+      action: service name=docker state=started # To start docker service

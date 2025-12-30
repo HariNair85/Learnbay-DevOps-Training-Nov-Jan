@@ -1,0 +1,10 @@
+- hosts: webservers
+  user: ansible
+  become: yes # Become an ansible user - Yes
+  connection: ssh # Connection type - SSH
+  tasks:
+    - name: Start httpd service on my host servers
+      action: service name=httpd state=stopped # To start httpd service
+
+    - name: Start docker service on my host servers
+      action: service name=docker state=stopped # To start docker service

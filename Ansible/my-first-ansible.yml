@@ -1,0 +1,16 @@
+- hosts: webservers
+  user: ansible
+  become: yes # Become an ansible user - Yes
+  connection: ssh # Connection type - SSH
+  tasks:
+    - name: Install httpd on my host servers
+      action: yum pkg=httpd state=present # To install httpd package
+
+    - name: insall docket on my host servers
+      action: yum pkg=docker state=present # To install docket package
+
+    - name: Install java on my host servers
+      action: yum pkg=java-1.8.0-openjdk state=present # To install java package
+
+    - name: Install python on my host machine
+      action: yum pkg=python3 state=present # To install python package
