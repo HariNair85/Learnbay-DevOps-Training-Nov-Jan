@@ -9,7 +9,7 @@ FROM openjdk:1.8.0
 FROM ubunut:latest or amazon-linux:katest
 
 
-	2. WORKDIR:- it is used to specify a working directory inside the container
+2. WORKDIR:- it is used to specify a working directory inside the container
 
 WORKDIR  /app  or /web or /murali 
 
@@ -18,19 +18,15 @@ WORKDIR  /app  or /web or /murali
 MAINTAINER  muraliclahan526@gmail.com 
 
 	4. RUN :- it will execute commands while building a docker image
+    Why we use RUN:-
+To install software packages, update the system, or configure the environment during the image build process.
 
 RUN apt update -y
-
 RUN yum update -y
-
 RUN npm install
-
 RUN pip install requirements.txt
-
-RUN  apt install apache2 -y
-
+RUN apt install apache2 -y
 RUN apt install nginx -y
-
 
 	5. COPY :- it is used to copy src, libraries, dependencies form host machine to container machine
 
@@ -40,12 +36,9 @@ COPY .  /app
 
 	6. EXPOSE :- it is used to specify app port number in a dockerfile 
 
-EXPOSE  8000
-
+EXPOSE 8000
 EXPOSE 80
-
 EXPOSE 5000
-
 EXPOSE 9000
 
 	7. ENTRYPOINT :- it is used to specify to execute a fixed main command, container behave like an executable, command cannot be overridden 
