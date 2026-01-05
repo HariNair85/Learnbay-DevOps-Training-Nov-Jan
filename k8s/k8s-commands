@@ -65,4 +65,44 @@
    39  kubectl get all -n murali-ns
    40  kubectl delete pods --all -n murali-ns
    41  kubectl get all -n murali-ns
+      10  kubectl get nodes
+   11  vi deployment.yaml
+   12  kubectl create ns murali-ns
+   13  ls
+   14  mkdir murali-k8s
+   15  ls
+   16  mv deployment.yaml murali-k8s/
+   17  ls
+   18  cd murali-k8s/
+   19  ls
+   20  kubectl apply -f deployment.yaml
+   21  kubectl get all -n murali-ns
+   22  vi svc.yaml
+   23  ls
+   24  kubectl apply -f svc.yaml
+   25  kubectl get all -n murali-ns
+   26  kubectl describe svc ipl-service -n murali-ns
+   27  vi svc.yaml
+   28  ls
+   29  kubectl apply -f svc.yaml
+   30  kubectl get all -n murali-ns
+   31  kubectl get nodes
+   32  kubectl get nodes -o wide
+   33  kubectl get pods -n murali-ns -o wide
+   34  vi svc.yaml
+   35  ls
+   36  kubectl apply -f svc.yaml
+   37  kubectl get all -n murali-ns
+   38  vi ingress.yaml
+   39  ls
+   40  vi svc.yaml
+   41  ls
+   42  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml
+   43  kubectl get ns
+   44  kubectl get all -n ingress-nginx
+   45  ls
+   46  kubectl apply -f svc.yaml
+   47  kubectl apply -f ingress.yaml
+   48  kubectl get ingress -n murali-ns
+
 
