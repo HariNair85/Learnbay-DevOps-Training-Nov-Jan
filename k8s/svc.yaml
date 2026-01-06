@@ -48,6 +48,22 @@ spec:
   type: LoadBalancer
 
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-service
+  namespace: {{ .Values.namespace }}
+spec:
+  selector:
+    app: {{ .Values.service.app }}
+  ports:
+    - protocol: TCP
+      port: {{ .Values.service.port }}              # Service Port and it can be any valid port number and it is our wish
+      targetPort: {{ .Values.container.containerPort }}       # Container Port on which our application is running
+  type: {{ .Values.service.type }}
+
+
+---
 
 # svc type ExternalName
 

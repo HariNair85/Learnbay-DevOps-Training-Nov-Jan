@@ -1,0 +1,15 @@
+namespace: murali-ns
+replicas: 5
+labels:
+  app: ipl
+container: 
+  name: ipl
+  containerPort: 3000
+image: 
+  repository: muralisocial123/ipl
+  tag: latest
+
+service:
+  type: LoadBalancer
+  app: ipl
+  port: 3000
