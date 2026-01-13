@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana-deployment
+  namespace: observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+      - name: kibana
+        image: docker.elastic.co/kibana/kibana:8.11.0
+        env:
+        - name: ELASTICSEARCH_HOSTS
+          value: "http://elasticsearch:9200"
+        - name: XPACK_ENCRYPTEDSAVEDOBJECTS_ENCRYPTIONKEY
+          value: "iE0lhD/ZAth6gviqiLjSsv07cj4eF1DS6Dy94d5opzQ="
+        ports:
+        - containerPort: 5601
+
