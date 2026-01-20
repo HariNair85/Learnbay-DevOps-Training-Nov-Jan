@@ -148,3 +148,36 @@ Prerequisites of eks cluster in aws
 	7. Create a cluster using cli
 
 eksctl create cluster --name murali-cluster --region sa-east-1  --zones sa-east-1a,sa-east-1b  --nodegroup-name k8s-ng  --node-type t2.small  --nodes 2
+
+Svc types
+========
+
+	1. ClusterIP:-  it will expose app within the cluster and it is for prod use and you cant access app out of the cluster and it will give only static virtual ip add.
+	2. NodePort: - It will expose app in a cluster on each worker node and using worker node external ip add we can able to access the app outside of the cluster but it is for temporary use,  there is a port limitations 
+
+	Ø K8s assigns a port form 30000 to 32767 
+
+	3. LoadBalancer:- it will expose app outside of the cluster and it will give one external ip add then you can able to access the app out of the cluster but LB will give you cost and when you don't have domain or host name but if you want to access app outside of the cluster you can use LB.
+
+	4. ExternalName:- it will assign a domain name to ur svc so that you can access app using domain name instead ip add, flipkart.com,  amazon.com , jio.com
+
+
+Flipkart App
+==========
+
+	Ø My app has 10 micro svc's :- flipkart.com:- orders.flipkart.com,  wishlist.flipkrt.com
+	Ø Each micro svc requires one svc in k8s
+	Ø LB :- ex-ip :- it is cost
+	Ø Client budget is only 25$
+	Ø LB is 5$
+	Ø 10*5=50$
+
+Ingress
+======
+	Ø Required only one LB 
+	Ø Using single LB ingress can expose n no.of svc's
+	Ø One :- 5$ --> 25$-5$ = 20$ 
+	Ø clusterIP type only
+
+Host-based routing:-- flipkart.login.com,  flipkart.cart.com,  flipkart.wishlist.com 
+Path-based routing:-  /login,   /cart , /wishlist,  /orders
